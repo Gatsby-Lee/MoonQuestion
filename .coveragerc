@@ -1,0 +1,3 @@
+[run]
+source = moonquestion
+omit = moonquestion/test*
