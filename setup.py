@@ -4,6 +4,7 @@ requires = [
     'pyramid',
     'pyramid_jinja2',
     'pyramid_debugtoolbar',
+    'sqlalchemy',
     'waitress',
 ]
 
