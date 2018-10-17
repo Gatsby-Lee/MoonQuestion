@@ -9,4 +9,3 @@ dist
 .vscode
 .pytest_cache
 test.py
-*.egg-info
