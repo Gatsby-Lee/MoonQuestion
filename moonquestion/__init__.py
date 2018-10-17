@@ -6,12 +6,16 @@ import logging
 
 from pyramid.config import Configurator
 
-from moonqpy.storage.sa_engine import AppEngineFactory
+from moonqpy.storage.sa_engine import SAEngineFactory
 
 LOGGER = logging.getLogger(__name__)
 
 
-def _get_rdbms(settings):
+def _get_rdbms_uri_from_settings(settings):
+    """ Extract rdbms config from settings.
+        Args: settings dict
+        Returns: rdbms_dict
+    """
 
     rdbms_dict = {}
     for x in settings:
@@ -33,7 +37,8 @@ def main(global_config, **settings):
     config = Configurator(settings=settings)
     config.add_static_view('static', 'static')
     config.include('pyramid_jinja2')
-    config.registry.db = AppEngineFactory(_get_rdbms(settings))
+    config.registry.saengines = SAEngineFactory(
+        _get_rdbms_uri_from_settings(settings))
     config.include('.route')
     config.scan('.views')
     return config.make_wsgi_app()

@@ -1,6 +1,8 @@
 """
 @author Gatsby Lee
 @since 2018-10-14
+
+SQLAlchemy Engines
 """
 import logging
 from sqlalchemy import create_engine
@@ -8,7 +10,7 @@ from sqlalchemy import create_engine
 LOGGER = logging.getLogger(__name__)
 
 
-class AppEngineFactory(object):
+class SAEngineFactory(object):
 
     _engines = {}
 
@@ -17,12 +19,15 @@ class AppEngineFactory(object):
             Args:
                 engines tuple of tuple('name', 'dialet')
         """
-        for k, dialect in engines.items():
-            LOGGER.info('create saengine %s => %s', k, dialect)
-            self._engines[k] = create_engine(dialect)
+        for name, dialect in engines.items():
+            LOGGER.info('create saengine with %s', name)
+            self._engines[name] = create_engine(dialect)
 
     def get_engine(self):
-        return self._engines['master']
+        """Return SA engine instance in default.
+            Returns: tupul(saengine,)
+        """
+        return (self._engines['master'],)
 
 
 def get_engine():
