@@ -15,5 +15,6 @@ LOGGER = logging.getLogger(__name__)
 
 @view_config(route_name='list_questions', renderer='json')
 def list_questions(request):
-    qlist = QuestionApplogic().get_questions()
+    saengines = request.registry.saengines
+    qlist = QuestionApplogic(saengines).get_questions()
     return {'qlist': qlist}

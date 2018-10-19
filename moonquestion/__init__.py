@@ -27,6 +27,10 @@ def _get_rdbms_uri_from_settings(settings):
     return rdbms_dict
 
 
+def saengines(request):
+    return request.registry.saengines
+
+
 def main(global_config, **settings):
     """ This function returns a WSGI application.
     
@@ -37,8 +41,7 @@ def main(global_config, **settings):
     config = Configurator(settings=settings)
     config.add_static_view('static', 'static')
     config.include('pyramid_jinja2')
-    config.registry.saengines = SAEngineFactory(
-        _get_rdbms_uri_from_settings(settings))
     config.include('.route')
     config.scan('.views')
+    config.registry.saengines = SAEngineFactory(_get_rdbms_uri_from_settings(settings))
     return config.make_wsgi_app()
