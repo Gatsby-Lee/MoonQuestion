@@ -8,18 +8,14 @@ import sqlalchemy as SA
 LOGGER = logging.getLogger(__name__)
 
 
-class QuestionApplogic(object):
+class QuestionApp(object):
+    @classmethod
+    def get_questions(cls, saengines):
+        table_md = saengines.get_table_metadata('questions')
+        stmt = SA.select([table_md])
 
-    _saengines = None
-
-    def __init__(self, saengines):
-        self._saengines = saengines
-        self.md = self._saengines.get_table_metadata('questions')
-
-    def get_questions(self):
-        engine = self._saengines.get_engine()
-        stmt = SA.select([self.md])
         return_list = []
+        engine = saengines.get_engine()
         with engine.connect() as conn:
             result_obj = conn.execute(stmt)
             for r in result_obj:
@@ -27,11 +23,14 @@ class QuestionApplogic(object):
                 return_list.append(list(r))
         return return_list
 
-    def create_question(self, qobj):
+    @classmethod
+    def create_question(cls, qobj):
         pass
 
-    def update_question(self, qobj):
+    @classmethod
+    def update_question(cls, qobj):
         pass
 
-    def delete_question(self, qobj):
+    @classmethod
+    def delete_question(cls, qobj):
         pass

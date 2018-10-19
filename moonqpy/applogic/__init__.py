@@ -1,1 +1,1 @@
-from .question_applogic import QuestionApplogic
+from moonqpy.applogic.question_app import QuestionApp

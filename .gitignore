@@ -9,3 +9,5 @@ dist
 .vscode
 .pytest_cache
 test.py
+moonquestion.db
+
