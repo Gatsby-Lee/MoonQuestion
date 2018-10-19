@@ -5,7 +5,8 @@
 SQLAlchemy Engines
 """
 import logging
-from sqlalchemy import create_engine
+
+import sqlalchemy
 
 LOGGER = logging.getLogger(__name__)
 
@@ -13,6 +14,7 @@ LOGGER = logging.getLogger(__name__)
 class SAEngineFactory(object):
 
     _engines = {}
+    _saversion = sqlalchemy.__version__
 
     def __init__(self, engines):
         """
@@ -20,15 +22,11 @@ class SAEngineFactory(object):
                 engines tuple of tuple('name', 'dialet')
         """
         for name, dialect in engines.items():
-            LOGGER.info('create saengine with %s', name)
-            self._engines[name] = create_engine(dialect)
+            LOGGER.info('[%s] create saengine with %s', self._saversion, name)
+            self._engines[name] = sqlalchemy.create_engine(dialect)
 
     def get_engine(self):
         """Return SA engine instance in default.
             Returns: tupul(saengine,)
         """
-        return (self._engines['master'],)
-
-
-def get_engine():
-    return create_engine('sqlite:///moonquestion.db')
+        return self._engines['master']
