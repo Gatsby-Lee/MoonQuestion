@@ -13,7 +13,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 class SAEngineFactory(object):
-
+    """Providing functionalities related SQLAlchemy Engines."""
     _engines = {}
     _saversion = sqlalchemy.__version__
 
@@ -34,7 +34,7 @@ class SAEngineFactory(object):
         return SA_METADATA.tables[table_name]
 
     def get_engine(self):
-        """Return SA engine instance in default.
+        """Return SQLAlchemy engine instance in default.
             Returns: tupul(saengine,)
         """
         return self._engines['master']
