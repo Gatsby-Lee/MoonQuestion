@@ -18,6 +18,7 @@ def home(request):
     return {}
 
 
+@view_config(route_name='get_questions', renderer='json')
 def list_questions(request):
     saengines = request.registry.saengines
     qlist = QuestionApp.get_questions(saengines)

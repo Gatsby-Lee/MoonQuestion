@@ -1,17 +1,27 @@
 console.log('My index.js')
 
-Vue.component('todo-item', {
-    props: ['todo'],
-    template: '<li>{{ todo.text }}</li>'
+Vue.component('question-item', {
+    props: ['question'],
+    template: '<li>{{ question[1] }}</li>'
 })
 
 var app = new Vue({
     el: '#app',
     data: {
-        groceryList: [
-            { id: 0, text: 'Vegetables' },
-            { id: 1, text: 'Cheese' },
-            { id: 2, text: 'Whatever else humans are supposed to eat' }
-        ]
-    }
+        questions: []
+    },
+    mounted: function () {
+        this.get_questions();
+    },
+    methods: {
+        get_questions: function (resource) {
+            this.$http.get('/q/')
+                .then((response) => {
+                    this.questions = response.data['qlist'];
+                })
+                .catch((err) => {
+                    console.error('failed');
+                })
+        },
+    },
 })
