@@ -39,8 +39,10 @@ def main(global_config, **settings):
     """
     # @ref: https://docs.pylonsproject.org/projects/pyramid/en/latest/api/config.html
     config = Configurator(settings=settings)
-    config.add_static_view('static', 'static')
+    config.add_static_view('static', 'static', cache_max_age=3600)
     config.include('pyramid_jinja2')
+    # config.add_renderer('.html', "pyramid_jinja2.renderer_factory")
+    config.add_jinja2_renderer('.html')
     config.include('.route')
     config.scan('.views')
     config.registry.saengines = SAEngineFactory(_get_rdbms_uri_from_settings(settings))
