@@ -1,8 +1,7 @@
 {% extends "layout_1.html" %}
 {% block content%}
 <div id="app">
-  <h1 class="mt-5">MoonQuestions</h1>
-  <ul>
+  <ol>
     <!--
           Now we provide each todo-item with the todo object
           it's representing, so that its content can be dynamic.
@@ -11,6 +10,6 @@
         -->
     <question-item v-for="item in questions" v-bind:question="item" v-bind:key="item.id">
     </question-item>
-  </ul>
+    </ul>
 </div>
 {% endblock content %}
