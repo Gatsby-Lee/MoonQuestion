@@ -26,8 +26,7 @@ Update `package.json`
 .. code-block:: bash
 
   "scripts": {
-    "dev": "WEBPACK_ENV=development webpack --progress --colors --watch",
-    "build": "WEBPACK_ENV=production webpack"
+    "dev": "WEBPACK_ENV=development webpack --progress --colors --watch"
   },
 
 

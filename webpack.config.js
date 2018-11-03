@@ -11,8 +11,7 @@ module.exports = {
     entry: './vuesrc/main.js',
     // by default, output is `./dist/main.js`
     output: {
-        // filename: 'app.js',
-        filename: '[name].js',
+        filename: 'app.js',
         path: path.resolve(__dirname, 'moonquestion/static/zdist'),
     },
     module: {
