@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "vue-loader": "^15.4.2",
+    "webpack": "^4.24.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "scripts": {
+    "dev": "WEBPACK_ENV=development webpack --progress --colors --watch",
+    "build": "WEBPACK_ENV=production webpack"
+  },
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
+}
