@@ -1,4 +1,4 @@
-console.log('My index.js')
+// no need to imprt Vue
 
 Vue.component('question-item', {
     props: ['question'],

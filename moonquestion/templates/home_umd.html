@@ -1,5 +1,8 @@
 {% extends "layout_1.html" %}
 {% block content%}
+<!--
+<div id="app"></div>
+-->
 
 <div class="input-group mb-3">
   <div class="input-group-append">
@@ -21,3 +24,11 @@
     </ul>
 </div>
 {% endblock content %}
+
+{% block js %}
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+<script src="{{request.static_url('moonquestion:static/home_umd.js')}}"></script>
+{% endblock js %}

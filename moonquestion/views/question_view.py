@@ -13,6 +13,7 @@ from moonqpy.applogic import QuestionApp
 LOGGER = logging.getLogger(__name__)
 
 
+@view_config(route_name='home_umd', renderer='moonquestion:templates/home_umd.html')
 @view_config(route_name='home', renderer='moonquestion:templates/home.html')
 def home(request):
     return {}

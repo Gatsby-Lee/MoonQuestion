@@ -1,17 +1,23 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader');
+
 
 // Enviroment flag
-var plugins = [];
+var plugins = [
+    new VueLoaderPlugin(),
+];
 var env = process.env.WEBPACK_ENV;
 
 module.exports = {
     mode: env,
     // by default, entry is `./src/index.js`
-    entry: './vuesrc/main.js',
+    entry: {
+        home: './vuesrc/home.js',
+    },
     // by default, output is `./dist/main.js`
     output: {
-        filename: 'app.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'moonquestion/static/zdist'),
     },
     module: {
@@ -29,6 +35,14 @@ module.exports = {
                 loader: 'vue-loader'
             }
         ]
+    },
+    // https://vuejs.org/v2/guide/installation.html#Explanation-of-Different-Builds
+    // if wish to use `full build` ( runtime + complier ), add alias.
+    // runtime-only build is 30% smaller.
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+        }
     },
     plugins
 };

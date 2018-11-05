@@ -1,0 +1,29 @@
+{% extends "layout_1.html" %}
+{% block content%}
+<!--
+<div id="app"></div>
+-->
+
+<div class="input-group mb-3">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">New</button>
+  </div>
+  <input type="text" class="form-control" placeholder="Question" aria-label="Recipient's username" aria-describedby="basic-addon2">
+</div>
+
+<div id="app">
+  <ol>
+    <!--
+          Now we provide each todo-item with the todo object
+          it's representing, so that its content can be dynamic.
+          We also need to provide each component with a "key",
+          which will be explained later.
+        -->
+    <question-item v-for="item in questions" v-bind:question="item" v-bind:key="item.id">
+    </question-item>
+    </ul>
+</div>
+{% endblock content %}
+{% block js %}
+<script src="{{request.static_url('moonquestion:static/zdist/home.js')}}"></script>
+{% endblock js %}
