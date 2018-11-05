@@ -14,6 +14,7 @@ module.exports = {
     // by default, entry is `./src/index.js`
     entry: {
         home_build_client_compiler: './vuesrc/home_build_client_compiler.js',
+        home_build: './vuesrc/Home.js',
     },
     // by default, output is `./dist/main.js`
     output: {

@@ -1,0 +1,15 @@
+{% extends "layout_1.html" %}
+{% block content%}
+
+<div class="input-group mb-3">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">New</button>
+  </div>
+  <input type="text" class="form-control" placeholder="Question" aria-label="Recipient's username" aria-describedby="basic-addon2">
+</div>
+
+<div id="app"></div>
+{% endblock content %}
+{% block js %}
+<script src="{{request.static_url('moonquestion:static/zdist/home_build.js')}}"></script>
+{% endblock js %}

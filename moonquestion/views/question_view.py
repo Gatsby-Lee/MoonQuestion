@@ -15,7 +15,7 @@ LOGGER = logging.getLogger(__name__)
 
 @view_config(route_name='home-esm-client-compiler', renderer='moonquestion:templates/home_build_client_compiler.html')
 @view_config(route_name='home-umd', renderer='moonquestion:templates/home_umd.html')
-@view_config(route_name='home', renderer='moonquestion:templates/home_umd.html')
+@view_config(route_name='home', renderer='moonquestion:templates/home_build.html')
 def home(request):
     return {}
 
