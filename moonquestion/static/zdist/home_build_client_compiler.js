@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./vuesrc/home.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./vuesrc/home_build_client_compiler.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -154,15 +154,15 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 
 /***/ }),
 
-/***/ "./vuesrc/home.js":
-/*!************************!*\
-  !*** ./vuesrc/home.js ***!
-  \************************/
+/***/ "./vuesrc/home_build_client_compiler.js":
+/*!**********************************************!*\
+  !*** ./vuesrc/home_build_client_compiler.js ***!
+  \**********************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var vue_resource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-resource */ \"./node_modules/vue-resource/dist/vue-resource.esm.js\");\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(vue_resource__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].component('question-item', {\n  props: ['question'],\n  template: '<li>{{ question[1] }}</li>'\n});\nvar app = new vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n  el: '#app',\n  data: {\n    questions: []\n  },\n  mounted: function mounted() {\n    this.get_questions();\n  },\n  methods: {\n    get_questions: function get_questions(resource) {\n      var _this = this;\n\n      this.$http.get('/q/').then(function (response) {\n        _this.questions = response.data['qlist'];\n      }).catch(function (err) {\n        console.error('failed');\n      });\n    }\n  }\n});\n\n//# sourceURL=webpack:///./vuesrc/home.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var vue_resource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-resource */ \"./node_modules/vue-resource/dist/vue-resource.esm.js\");\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(vue_resource__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].component('question-item', {\n  props: ['question'],\n  template: '<li>{{ question[1] }}</li>'\n});\nvar app = new vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n  el: '#app',\n  data: {\n    questions: []\n  },\n  mounted: function mounted() {\n    this.get_questions();\n  },\n  methods: {\n    get_questions: function get_questions(resource) {\n      var _this = this;\n\n      this.$http.get('/q/').then(function (response) {\n        _this.questions = response.data['qlist'];\n      }).catch(function (err) {\n        console.error('failed');\n      });\n    }\n  }\n});\n\n//# sourceURL=webpack:///./vuesrc/home_build_client_compiler.js?");
 
 /***/ }),
 

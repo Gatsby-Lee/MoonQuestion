@@ -13,7 +13,7 @@ module.exports = {
     mode: env,
     // by default, entry is `./src/index.js`
     entry: {
-        home: './vuesrc/home.js',
+        home_build_client_compiler: './vuesrc/home_build_client_compiler.js',
     },
     // by default, output is `./dist/main.js`
     output: {
